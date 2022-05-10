@@ -8,7 +8,7 @@ it("validate login", function(){
   
 
   browser.get(browser.params.url);
- browser.sleep(3000);
+  browser.sleep(3000);
   browser.manage().window().maximize();
   browser.sleep(3000);
   browser.ignoreSynchronization=true;

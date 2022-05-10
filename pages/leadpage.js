@@ -5,7 +5,7 @@ let leadpage=function(){
     let leadsamplecsv=element(by.xpath("//button[normalize-space()='Download sample CSV']"));
     let leadbulkimport=element(by.xpath("//button[normalize-space()='Bulk Import']"));
     let leadinvite=element(by.xpath("//button[normalize-space()='Invite Leads']"));
-    let leadnewlead=element(by.buttonText('New Lead'));
+    let leadnewlead=element(by.xpath("//button[normalize-space()='New Lead']"));
     let leadfname=element(by.xpath("//input[@id='firstName']"));
     let leadmname=element(by.name("middleName"));
     let leadlname=element(by.name("lastName"));
@@ -36,38 +36,49 @@ let leadpage=function(){
         browser.get(url);
     }
 
-    this.setfName=function(fname){
-        leadfname.sendKeys(fname);
+    this.setfName=function(firstnameLead){
+        leadfname.sendKeys(firstnameLead);
     }
 
-    this.setmName=function(mname){
-        leadmname.sendKeys(mname);
+    this.setmName=function(middlenameLead){
+        leadmname.sendKeys(middlenameLead);
     }
 
-    this.setlName=function(lname){
-        leadlname.sendKeys(lname);
+    this.setlName=function(lastnameLead){
+        leadlname.sendKeys(lastnameLead);
     }
 
-    this.setEmail=function(email){
-        leademail.sendKeys(email);
+    this.setEmail=function(emailLead){
+        leademail.sendKeys(emailLead);
     }
 
-    this.setPhone=function(phoneNumber1){
-        leadphone.sendKeys(phoneNumber1);
+    this.setPhone=function(phnumber1){
+        leadphone.sendKeys(phnumber1);
     }
 
-    this.setAlternatePhone=function(phoneNumber2){
-        leadalterphone.sendKeys(phoneNumber2);
+    this.setAlternatePhone=function(phnumber2){
+        leadalterphone.sendKeys(phnumber2);
     }
 
-    this.setwhatsapp=function(mobile){
-        leadwhatsappnumber.sendKeys(mobile);
+    this.setwhatsapp=function(mobNumber){
+        leadwhatsappnumber.sendKeys(mobNumber);
     }
 
 
-    this.setGender=function(gendName){
+   // this.setGender=function(){
+    //element.all(leaddrpgender).each(function (eachElement, index) 
+   // {
+    //   eachElement.click();// select the <select>
+    //   browser.driver.sleep(500);// wait for the renderings to take effect
+    //   element(by.css('Male')).click();// select the first md-option
+    //   browser.driver.sleep(500);// wait for the renderings to take effect
+  // })
+//}
+
+    this.setGender=function(genderName){
         leadgender1=leaddrpgender.element(by.xpath("//div[@class='MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-12v822k']")).click();
-        leadgender1.element(by.xpath("//li[@id='gender-option-1']")).click();    
+        leadgender1.element(by.xpath("//li[@id='gender-option-0']")).click();
+        ;    
     }
 
     this.setDOB=function(date){
@@ -76,8 +87,8 @@ let leadpage=function(){
       leaddob2.element(by.xpath("//body/div[2]/div[3]/div[1]/div[2]/button[2]")).click();
     }
     
-      this.setOccupation=function(Occup){
-        leadoccup.sendKeys(Occup);
+      this.setOccupation=function(occupation){
+        leadoccup.sendKeys(occupation);
     }
 
     this.setCommLangauge=function(lang){
@@ -114,8 +125,8 @@ let leadpage=function(){
         leadcountry1.element(by.xpath("//div[@id='country-option-0']")).click();
     }
 
-    this.setPostalcode=function(code){
-        leadpostal.sendKeys(code);
+    this.setPostalcode=function(pincode){
+        leadpostal.sendKeys(pincode);
     }
 
     this.setAddress1=function(addresstext1){
@@ -126,8 +137,8 @@ let leadpage=function(){
         leadaddress2.sendKeys(addresstext2);
     }
 
-    this.setLandmark=function(land){
-        leadlandmark.sendKeys(land);
+    this.setLandmark=function(Land){
+        leadlandmark.sendKeys(Land);
     }
 
     this.clickSave=function(){

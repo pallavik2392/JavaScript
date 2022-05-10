@@ -1,13 +1,15 @@
 
 let leadpage = require('../pages/leadpage')
 let signinpage= require('../pages/signinpage')
+//let dataRequired=require('../pages/dataRequired')
 
 describe("my suite",function(){
 
-    beforeAll(function()
-    {
+    it("add lead",function(){ 
         
     browser.ignoreSynchronization=true;
+    browser.waitForAngularEnabled(false);
+
     browser.get(browser.params.url);
     browser.sleep(3000);
     browser.manage().window().maximize();
@@ -18,33 +20,29 @@ describe("my suite",function(){
     browser.sleep(3000);
     signinpage.clicksubmit();
     browser.sleep(3000);
-    })
-
-it("add lead",function(){ 
-
    
     leadpage.clicknewlead();
     browser.sleep(3000);
 
-    leadpage.setfName(browser.params.fname);
+    leadpage.setfName(browser.params.firstnameLead);
     browser.sleep(2000);
-    leadpage.setmName(browser.params.mname);
+    leadpage.setmName(browser.params.middlenameLead);
     browser.sleep(2000);
-    leadpage.setlName(browser.params.lname);
+    leadpage.setlName(browser.params.lastnameLead);
     browser.sleep(2000);
-    leadpage.setEmail(browser.params.email);
+    leadpage.setEmail(browser.params.emailLead);
     browser.sleep(2000);
-    leadpage.setPhone(browser.params.phoneNumber1);
+    leadpage.setPhone(browser.params.phnumber1);
     browser.sleep(2000);
-    leadpage.setAlternatePhone(browser.params.phoneNumber2);
+    leadpage.setAlternatePhone(browser.params.phnumber2);
     browser.sleep(2000);
-    leadpage.setwhatsapp(browser.params.mobile);
+    leadpage.setwhatsapp(browser.params.mobNumber);
     browser.sleep(2000);
-    leadpage.setGender(browser.params.gendName);
+    leadpage.setGender(browser.params.genderName);
     browser.sleep(2000);
     leadpage.setDOB("07/04/1992");
     browser.sleep(2000);
-    leadpage.setOccupation(browser.params.Occup);
+    leadpage.setOccupation(browser.params.occupation);
     browser.sleep(2000);
     leadpage.setCommLangauge("English");
     browser.sleep(2000);
@@ -58,12 +56,12 @@ it("add lead",function(){
     browser.sleep(2000);
     leadpage.setCountry("India");
     browser.sleep(2000);
-    leadpage.setPostalcode(browser.params.code);
+    leadpage.setPostalcode(browser.params.pincode);
     browser.sleep(2000);
     leadpage.setAddress1(browser.params.addresstext1);
     leadpage.setAddress2(browser.params.addresstext2);
     browser.sleep(2000);
-    leadpage.setLandmark(browser.params.land);
+    leadpage.setLandmark(browser.params.Land);
     browser.sleep(2000);
     leadpage.clickSave();
 

@@ -1,8 +1,7 @@
-
-//const { browser } = require('protractor');
 //const { browser } = require('protractor');
 //const { browser } = require('protractor');
 var xcelTojson = require('../tests/xcelTojson');
+
 //an example configuration file
 exports.config = {
 directConnect: true,
@@ -12,9 +11,11 @@ capabilities: {
    'browserName': 'chrome'
 },
 
-//onPrepare: function(){
+onPrepare: async () => {
    
-   //browser.manage().window().maximize();
+   await browser.waitForAngularEnabled(false);
+  // await browser.get(xcelTojson.testConfig.phoneNumber1);
+
    
    //browser.driver.get('https://staging-alis.wemotive.in/');
   //browser.get(xcelTojson.testConfig.url);
@@ -26,36 +27,50 @@ capabilities: {
    //browser.get(xcelTojson.testConfig.passcred);
    //console.log(xcelTojson.testConfig.result.userpasscred);
 
-//},
+},
 
 //framework to use  jasmine is recommended
 framework: 'jasmine',
 
 //spec pattern relative to the current working directory when protractor is called
-specs:['..//tests//logintest.js'],
+specs:['..//tests//dropdown.js'],
 
 
 params:
-{
+{ 
+   
    //url:'https://staging-alis.wemotive.in/',
    url: xcelTojson.testConfig.url,
    //usercred:'sa@mailinator.com',
    usercred: xcelTojson.testConfig.usercred,
    //passcred:'User123!',
    passcred: xcelTojson.testConfig.passcred,
-   fname:'hony',
-   mname:'t',
-   lname:'ok',
-   email:'hony@mailinator.com',
-   phoneNumber1:9665659967,
-   phoneNumber2:8797565883,
-   mobile:9845676653,
-   gendName:'gender-option-1',
-   Occup:'teacher',
-   code:'415514',
-   addresstext1:'temple',
-   addresstext2:'school',
-   land:'ghhjkl',
+   //fname:'kony',
+   firstnameLead: xcelTojson.testConfig.firstnameLead,
+   //mname:'t',
+   middlenameLead: xcelTojson.testConfig.middlenameLead,
+   //lname:'ok',
+   lastnameLead: xcelTojson.testConfig.lastnameLead,
+   //email:'kony@mailinator.com',
+   emailLead: xcelTojson.testConfig.emailLead,
+  // phnumber1:9669659967,
+  phnumber1:xcelTojson.testConfig.phnumber1,
+   // phnumber2:8799565883,
+    phnumber2:xcelTojson.testConfig.phnumber2, 
+    //mobNumber:9845676659,
+    mobNumber: xcelTojson.testConfig.mobNumber,
+   //gendName:'gender-option-1',
+   genderName: xcelTojson.testConfig.genderName,
+   //Occup:'teacher',
+   occupation: xcelTojson.testConfig.occupation,
+   //code:'415514',
+   pincode: xcelTojson.testConfig.pincode,
+  // addresstext1:'temple',
+  addresstext1: xcelTojson.testConfig.pincode,
+  // addresstext2:'school',
+  addresstext2: xcelTojson.testConfig.addresstext2,
+  // land:'ghhjkl',
+  Land: xcelTojson.testConfig.addresstext2,
 },
 
 //options to be passed to jasmine
